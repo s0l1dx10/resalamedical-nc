@@ -8,39 +8,75 @@ export type CaravanEvent = {
   day: string;
   month: string;
   details: [string, string][];
-  agenda: { time: string; t: string; d: string }[];
-  bring: string[];
+  organizer?: string;
+  partner?: { name: string; url: string };
+  instructors?: { ar: string; en: string; bio: string }[];
+  topics?: { ar: string; en: string }[];
+  agenda?: { time: string; t: string; d: string }[];
+  bring?: string[];
 };
 
 export const events: CaravanEvent[] = [
   {
     slug: "code-blue",
     name: "Code Blue",
-    emoji: "🦷",
-    subtitle: "يوم صحة الأسنان المجاني",
-    summary: "يوم مجاني لصحة الأسنان: كشف وتنظيف وتوعية للكبار والأطفال مع أطباء كلية طب الأسنان.",
+    emoji: "🚑",
+    subtitle: "تدريب الإسعافات الأولية والإنعاش القلبي الرئوي (CPR)",
+    summary:
+      "تدريب عملي على الإسعافات الأولية والإنعاش القلبي الرئوي مع مدربين معتمدين من جمعية القلب الأمريكية، بتنظيم قوافل طبية مدينة نصر وشركة MedSide.",
     intro:
-      "يوم كامل من الكشف والعلاج والتوعية المجانية، ينظمه فريق جمعية رسالة مع طلاب وأطباء كلية طب الأسنان. الدعوة عامة للكبار والأطفال.",
+      "تدريب عملي ينظمه نشاط قوافل طبية مدينة نصر بجمعية رسالة بالتعاون مع شركة MedSide، تتعلم فيه إزاي تتصرف صح في أول دقايق من أي حالة طوارئ: من تقييم المكان والمصاب لحد الإنعاش القلبي الرئوي ووضع الإفاقة.",
     day: "٢٠",
     month: "نوفمبر",
     details: [
       ["📅 التاريخ", "الجمعة ٢٠ نوفمبر ٢٠٢٦"],
-      ["⏰ الوقت", "٩ صباحاً – ٣ عصراً"],
-      ["📍 المكان", "مبنى كلية طب الأسنان – القاعة الرئيسية"],
-      ["💰 التكلفة", "مجاناً بالكامل"],
+      ["⏰ الوقت", "يُعلن قريباً"],
+      ["📍 المكان", "يُعلن قريباً"],
+      ["🤝 التنظيم", "قوافل طبية مدينة نصر × MedSide"],
     ],
-    agenda: [
-      { time: "٩:٠٠", t: "الاستقبال والتسجيل", d: "استلام رقم الدور وفتح ملف لكل حالة." },
-      { time: "٩:٣٠", t: "الكشف والتشخيص", d: "فحص شامل للفم والأسنان وتحديد خطة العلاج." },
-      { time: "١١:٠٠", t: "العلاج", d: "تنظيف جير، حشوات، وخلع للحالات البسيطة." },
-      { time: "١:٠٠", t: "ركن الأطفال", d: "ورشة تفاعلية عن طريقة تنظيف الأسنان الصحيحة." },
-      { time: "٢:٣٠", t: "التحويل والمتابعة", d: "تحويل الحالات المحتاجة إلى عيادات الكلية." },
+    organizer: "قوافل طبية مدينة نصر",
+    partner: { name: "MedSide Company", url: "https://www.facebook.com/share/1PtzdbPcVA/?mibextid=wwXIfr" },
+    instructors: [
+      {
+        ar: "د. أحمد البحيري",
+        en: "Dr. Ahmed El-Beheiry",
+        bio: "معيد بكلية الطب، ومدرب معتمد من جمعية القلب الأمريكية (AHA) والهلال الأحمر المصري واتحاد الأطباء العرب.",
+      },
+      {
+        ar: "د. إسماعيل علي",
+        en: "Dr. Ismail Ali",
+        bio: "مدرب معتمد من المجلس الأوروبي للإنعاش (ERC) ومتخصص في الإنعاش القلبي الرئوي (CPR)، ومدرب معتمد من جمعية القلب الأمريكية (AHA).",
+      },
+      {
+        ar: "د. أحمد السعدي",
+        en: "Dr. Ahmed El-Saady",
+        bio: "مدرب معتمد للإسعافات الأولية ورعاية الطوارئ من جمعية القلب الأمريكية (AHA).",
+      },
     ],
-    bring: [
-      "صورة البطاقة الشخصية أو شهادة الميلاد للأطفال",
-      "أي أشعة أو تقارير سابقة للأسنان",
-      "قائمة بالأدوية التي تتناولها حالياً",
-      "الحضور قبل موعدك بـ ١٥ دقيقة",
+    topics: [
+      { ar: "تقييم موقع الحادث والتأكد من سلامة المكان.", en: "Scene Assessment and Ensuring Scene Safety." },
+      { ar: "فحص المصاب وتقييم مستوى الوعي.", en: "Patient Assessment and Level of Consciousness Evaluation." },
+      { ar: "كيفية التعامل مع حالات الإغماء.", en: "Management of Fainting (Syncope)." },
+      { ar: "كيفية التعامل مع حالات فقدان الوعي والغيبوبة.", en: "Management of Unconsciousness and Coma." },
+      { ar: "فحص وتقييم النبض لدى البالغين والأطفال والرضع.", en: "Pulse Assessment in Adults, Children, and Infants." },
+      { ar: "فحص وتقييم التنفس لدى البالغين والأطفال والرضع.", en: "Breathing Assessment in Adults, Children, and Infants." },
+      {
+        ar: "التعرف على حالات التوقف القلبي المفاجئ وكيفية التعامل معها (السكتة القلبية).",
+        en: "Recognition and Management of Sudden Cardiac Arrest.",
+      },
+      { ar: "خطوات إجراء الإنعاش القلبي الرئوي (CPR).", en: "Cardiopulmonary Resuscitation (CPR) Techniques." },
+      {
+        ar: "كيفية التعامل مع حالات الاختناق لدى البالغين والأطفال والرضع.",
+        en: "Management of Choking in Adults, Children, and Infants.",
+      },
+      {
+        ar: "تصحيح المفاهيم الخاطئة حول ما يُعرف ببلع اللسان والتعامل الصحيح مع الحالة.",
+        en: "Understanding and Managing Tongue-Related Airway Obstruction (Myths About “Swallowing the Tongue”).",
+      },
+      {
+        ar: "كيفية وضع المصاب في وضع الإفاقة (Recovery Position).",
+        en: "Placing an Unconscious, Breathing Patient in the Recovery Position.",
+      },
     ],
   },
   {
