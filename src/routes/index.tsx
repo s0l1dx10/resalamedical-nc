@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { events } from "@/lib/events";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,9 +33,17 @@ const steps = [
 function Index() {
   return (
     <div dir="rtl" lang="ar" className="min-h-screen bg-background text-foreground font-arabic">
-      <Link to="/event" className="block bg-accent px-6 py-2.5 text-center text-sm font-bold text-accent-foreground">
-        📢 جديد: فعالية Blue Code لصحة الأسنان – الجمعة ٢٠ نوفمبر · <span className="underline">اعرف التفاصيل ←</span>
-      </Link>
+      <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-accent px-6 py-2.5 text-center text-sm font-bold text-accent-foreground">
+        <span>📢 فعاليات قادمة:</span>
+        {events.map((ev, i) => (
+          <span key={ev.slug} className="flex items-center gap-3">
+            {i > 0 && <span aria-hidden>·</span>}
+            <Link to="/events/$slug" params={{ slug: ev.slug }} className="underline">
+              {ev.name} ({ev.day} {ev.month})
+            </Link>
+          </span>
+        ))}
+      </div>
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <span className="text-xl font-extrabold text-primary">رسالة · القوافل الطبية</span>
         <div className="flex items-center gap-3">
@@ -59,26 +68,30 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-16">
-        <Link
-          to="/event"
-          className="group flex flex-col gap-6 rounded-3xl border-2 border-primary bg-card p-8 shadow-soft transition-transform hover:-translate-y-1 md:flex-row md:items-center md:justify-between"
-        >
-          <div className="flex items-center gap-5">
-            <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-              <span className="text-3xl font-extrabold leading-none">٢٠</span>
-              <span className="text-xs font-bold">نوفمبر</span>
+      <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-16 lg:grid-cols-2">
+        {events.map((ev) => (
+          <Link
+            key={ev.slug}
+            to="/events/$slug"
+            params={{ slug: ev.slug }}
+            className="group flex flex-col justify-between gap-6 rounded-3xl border-2 border-primary bg-card p-8 shadow-soft transition-transform hover:-translate-y-1"
+          >
+            <div className="flex items-start gap-5">
+              <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+                <span className="text-3xl font-extrabold leading-none">{ev.day}</span>
+                <span className="text-xs font-bold">{ev.month}</span>
+              </div>
+              <div>
+                <span className="text-sm font-bold text-primary">إعلان · {ev.subtitle}</span>
+                <h2 className="mt-1 text-2xl font-extrabold md:text-3xl">{ev.name} {ev.emoji}</h2>
+                <p className="mt-2 text-muted-foreground">{ev.summary}</p>
+              </div>
             </div>
-            <div>
-              <span className="text-sm font-bold text-primary">إعلان · فعالية قادمة</span>
-              <h2 className="mt-1 text-2xl font-extrabold md:text-3xl">Blue Code 🦷</h2>
-              <p className="mt-2 text-muted-foreground">يوم مجاني لصحة الأسنان: كشف وتنظيف وتوعية للكبار والأطفال مع أطباء كلية طب الأسنان.</p>
-            </div>
-          </div>
-          <span className="shrink-0 rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground">
-            التفاصيل والبرنامج ←
-          </span>
-        </Link>
+            <span className="self-end rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground">
+              التفاصيل والبرنامج ←
+            </span>
+          </Link>
+        ))}
       </section>
 
       <section className="bg-primary py-12 text-primary-foreground">

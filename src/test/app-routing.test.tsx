@@ -15,9 +15,10 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 
-  it("matches the event page at /event", () => {
+  it("matches each event page", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
 
-    expect(router.matchRoutes("/event").at(-1)?.routeId).toBe("/event");
+    expect(router.matchRoutes("/events/code-blue").at(-1)?.routeId).toBe("/events/$slug");
+    expect(router.matchRoutes("/events/beyond-the-sample").at(-1)?.routeId).toBe("/events/$slug");
   });
 });
