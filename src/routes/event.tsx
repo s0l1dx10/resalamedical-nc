@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/event")({
   head: () => ({
@@ -41,7 +42,10 @@ function EventPage() {
     <div dir="rtl" lang="ar" className="min-h-screen bg-background text-foreground font-arabic">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link to="/" className="text-xl font-extrabold text-primary">رسالة · طب الأسنان</Link>
-        <Link to="/" className="rounded-full border border-border px-5 py-2 text-sm font-bold">← الرجوع للرئيسية</Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link to="/" className="rounded-full border border-border px-5 py-2 text-sm font-bold">← الرجوع للرئيسية</Link>
+        </div>
       </header>
 
       <section className="bg-primary text-primary-foreground">

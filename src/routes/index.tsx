@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,11 +37,14 @@ function Index() {
       </Link>
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <span className="text-xl font-extrabold text-primary">رسالة · طب الأسنان</span>
-        <a href="#register" className="rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground">سجّل الآن</a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a href="#register" className="rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground">سجّل الآن</a>
+        </div>
       </header>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center">
-        <div>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="max-w-3xl">
           <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">نشاط القوافل الطبية</span>
           <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-6xl">
             ابتسامة لكل بيت.. <span className="text-primary">قافلة رسالة</span> لطب الأسنان
@@ -52,17 +56,6 @@ function Index() {
             <a href="#register" className="rounded-full bg-primary px-7 py-3 font-bold text-primary-foreground">انضم كمتطوع</a>
             <a href="#services" className="rounded-full border border-border px-7 py-3 font-bold">الخدمات</a>
           </div>
-        </div>
-        <div className="rounded-3xl bg-secondary p-8 shadow-soft">
-          <h2 className="text-lg font-bold text-secondary-foreground">تفاصيل الحدث</h2>
-          <dl className="mt-6 space-y-5">
-            {[["📅 التاريخ", "الجمعة ٢٠ نوفمبر ٢٠٢٦"], ["⏰ الوقت", "٩ صباحاً – ٣ عصراً"], ["📍 المكان", "يُعلن قريباً"], ["💰 التكلفة", "مجاناً بالكامل"]].map(([k, v]) => (
-              <div key={k} className="flex justify-between border-b border-border pb-3">
-                <dt className="text-muted-foreground">{k}</dt>
-                <dd className="font-bold">{v}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
@@ -93,6 +86,32 @@ function Index() {
           {[["+٥٠٠", "مستفيد متوقع"], ["+٨٠", "متطوع"], ["١٥", "طبيب مشرف"], ["٤", "خدمات علاجية"]].map(([n, l]) => (
             <div key={l}><div className="text-4xl font-extrabold">{n}</div><div className="mt-1 opacity-80">{l}</div></div>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 pt-20 md:grid-cols-2 md:items-center">
+        <div>
+          <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">عن نشاط القوافل الطبية</span>
+          <h2 className="mt-5 text-3xl font-extrabold leading-tight md:text-4xl">
+            قوافل <span className="text-primary">رسالة</span> الطبية.. الخير يوصل لحد باب البيت
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+            نشاط القوافل الطبية في جمعية رسالة بيطلع بشكل دوري للقرى والمناطق الأكثر احتياجاً، ومعاه أطباء ومتطوعين من تخصصات مختلفة: باطنة وأطفال ورمد وجلدية وأسنان وغيرها.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            بنقدّم الكشف والأدوية والتحاليل البسيطة مجاناً، وبنحوّل الحالات اللي محتاجة متابعة للمستشفيات والعيادات المتعاونة معانا.
+          </p>
+        </div>
+        <div className="rounded-3xl bg-secondary p-8 shadow-soft">
+          <h2 className="text-lg font-bold text-secondary-foreground">تفاصيل الحدث</h2>
+          <dl className="mt-6 space-y-5">
+            {[["📅 التاريخ", "الجمعة ٢٠ نوفمبر ٢٠٢٦"], ["⏰ الوقت", "٩ صباحاً – ٣ عصراً"], ["📍 المكان", "يُعلن قريباً"], ["💰 التكلفة", "مجاناً بالكامل"]].map(([k, v]) => (
+              <div key={k} className="flex justify-between border-b border-border pb-3">
+                <dt className="text-muted-foreground">{k}</dt>
+                <dd className="font-bold">{v}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
