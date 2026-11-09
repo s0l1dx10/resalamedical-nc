@@ -87,9 +87,21 @@ function Index() {
                 <p className="mt-2 text-muted-foreground">{ev.summary}</p>
               </div>
             </div>
-            <span className="self-end rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground">
-              التفاصيل والبرنامج ←
-            </span>
+            <div className="flex items-center justify-between gap-4">
+              {ev.partner?.logo ? (
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-muted-foreground">بالتعاون مع</span>
+                  <div className="h-12 w-24 overflow-hidden rounded-lg bg-logo-surface">
+                    <img src={ev.partner.logo} alt={`شعار ${ev.partner.name}`} className="h-full w-full object-cover" loading="lazy" />
+                  </div>
+                </div>
+              ) : (
+                <span />
+              )}
+              <span className="rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground">
+                التفاصيل والبرنامج ←
+              </span>
+            </div>
           </Link>
         ))}
       </section>

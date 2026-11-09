@@ -146,7 +146,18 @@ function EventPage() {
           {event.partner && (
             <div className="mt-6 rounded-2xl bg-card p-5 text-center">
               <p className="text-sm text-muted-foreground">بالتعاون مع</p>
-              <p dir="ltr" className="mt-1 text-lg font-extrabold">{event.partner.name}</p>
+              {event.partner.logo ? (
+                <div className="mt-3 overflow-hidden rounded-xl bg-logo-surface">
+                  <img
+                    src={event.partner.logo}
+                    alt={`شعار ${event.partner.name}`}
+                    className="aspect-[16/9] w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <p dir="ltr" className="mt-1 text-lg font-extrabold">{event.partner.name}</p>
+              )}
               <a
                 href={event.partner.url}
                 target="_blank"

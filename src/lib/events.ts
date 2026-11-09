@@ -1,3 +1,5 @@
+import medsideLogo from "@/assets/medside_logo.png.asset.json";
+
 export type CaravanEvent = {
   slug: string;
   name: string;
@@ -9,7 +11,7 @@ export type CaravanEvent = {
   month: string;
   details: [string, string][];
   organizer?: string;
-  partner?: { name: string; url: string };
+  partner?: { name: string; url: string; logo?: string };
   instructors?: { ar: string; en: string; bio: string }[];
   topics?: { ar: string; en: string }[];
   agenda?: { time: string; t: string; d: string }[];
@@ -35,7 +37,11 @@ export const events: CaravanEvent[] = [
       ["🤝 التنظيم", "قوافل طبية مدينة نصر × MedSide"],
     ],
     organizer: "قوافل طبية مدينة نصر",
-    partner: { name: "MedSide Company", url: "https://www.facebook.com/share/1PtzdbPcVA/?mibextid=wwXIfr" },
+    partner: {
+      name: "MedSide Company",
+      url: "https://www.facebook.com/share/1PtzdbPcVA/?mibextid=wwXIfr",
+      logo: medsideLogo.url,
+    },
     instructors: [
       {
         ar: "د. أحمد البحيري",
