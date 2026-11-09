@@ -4,10 +4,10 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 export const Route = createFileRoute("/event")({
   head: () => ({
     meta: [
-      { title: "يوم صحة الأسنان المجاني | قوافل رسالة" },
-      { name: "description", content: "فعالية يوم صحة الأسنان من جمعية رسالة وكلية طب الأسنان: كشف مجاني، تنظيف، وتوعية للأطفال والكبار." },
-      { property: "og:title", content: "يوم صحة الأسنان المجاني | قوافل رسالة" },
-      { property: "og:description", content: "احجز مكانك في يوم صحة الأسنان المجاني مع طلاب وأطباء كلية طب الأسنان." },
+      { title: "Blue Code | يوم صحة الأسنان المجاني من رسالة" },
+      { name: "description", content: "فعالية Blue Code لصحة الأسنان من جمعية رسالة وكلية طب الأسنان: كشف مجاني، تنظيف، وتوعية للأطفال والكبار." },
+      { property: "og:title", content: "Blue Code | يوم صحة الأسنان المجاني من رسالة" },
+      { property: "og:description", content: "احجز مكانك في فعالية Blue Code لصحة الأسنان مع طلاب وأطباء كلية طب الأسنان." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -41,7 +41,7 @@ function EventPage() {
   return (
     <div dir="rtl" lang="ar" className="min-h-screen bg-background text-foreground font-arabic">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <Link to="/" className="text-xl font-extrabold text-primary">رسالة · طب الأسنان</Link>
+        <Link to="/" className="text-xl font-extrabold text-primary">رسالة · القوافل الطبية</Link>
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <Link to="/" className="rounded-full border border-border px-5 py-2 text-sm font-bold">← الرجوع للرئيسية</Link>
@@ -51,7 +51,8 @@ function EventPage() {
       <section className="bg-primary text-primary-foreground">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">فعالية قادمة</span>
-          <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-6xl">يوم صحة الأسنان المجاني 🦷</h1>
+          <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-6xl">Blue Code 🦷</h1>
+          <p className="mt-3 text-2xl font-bold opacity-90">يوم صحة الأسنان المجاني</p>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed opacity-90">
             يوم كامل من الكشف والعلاج والتوعية المجانية، ينظمه فريق جمعية رسالة مع طلاب وأطباء كلية طب الأسنان. الدعوة عامة للكبار والأطفال.
           </p>
@@ -105,7 +106,7 @@ function EventPage() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        جمعية رسالة للأعمال الخيرية · فريق كلية طب الأسنان © ٢٠٢٦
+        جمعية رسالة للأعمال الخيرية · نشاط القوافل الطبية © ٢٠٢٦
       </footer>
     </div>
   );

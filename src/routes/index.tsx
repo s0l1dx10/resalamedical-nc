@@ -4,10 +4,10 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "قوافل رسالة الطبية | كلية طب الأسنان" },
-      { name: "description", content: "قافلة طبية لعلاج الأسنان مجاناً من جمعية رسالة بالتعاون مع طلاب كلية طب الأسنان." },
-      { property: "og:title", content: "قوافل رسالة الطبية | كلية طب الأسنان" },
-      { property: "og:description", content: "انضم كمتطوع أو احجز كشفاً مجانياً في قافلة رسالة لطب الأسنان." },
+      { title: "قوافل رسالة الطبية | كشف وعلاج مجاني" },
+      { name: "description", content: "نشاط القوافل الطبية بجمعية رسالة: كشف وعلاج وأدوية مجانية لأهالي القرى والمناطق الأكثر احتياجاً." },
+      { property: "og:title", content: "قوافل رسالة الطبية | كشف وعلاج مجاني" },
+      { property: "og:description", content: "انضم كمتطوع أو سجّل للكشف المجاني في قوافل رسالة الطبية." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -16,27 +16,27 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { t: "كشف وتشخيص", d: "فحص شامل للفم والأسنان على يد أطباء وطلاب الامتياز." },
-  { t: "حشو وتنظيف", d: "تنظيف الجير وحشوات مؤقتة ودائمة حسب الحالة." },
-  { t: "خلع الأسنان", d: "خلع آمن للحالات البسيطة تحت إشراف أعضاء هيئة التدريس." },
-  { t: "توعية صحية", d: "ورش للأطفال والكبار عن العناية اليومية بالأسنان." },
+  { t: "كشف في تخصصات متعددة", d: "باطنة وأطفال ورمد وجلدية ونسا وأسنان على يد أطباء متطوعين." },
+  { t: "صرف الأدوية", d: "صرف العلاج اللازم لكل حالة مجاناً من صيدلية القافلة." },
+  { t: "تحاليل وقياسات", d: "قياس الضغط والسكر وتحاليل بسيطة للاطمئنان على الصحة." },
+  { t: "توعية صحية", d: "ندوات للأمهات والأطفال والكبار عن الوقاية والتغذية السليمة." },
 ];
 
 const steps = [
-  { n: "١", t: "التسجيل", d: "سجّل اسمك كمتطوع أو كمستفيد." },
-  { n: "٢", t: "التجهيز", d: "تدريب المتطوعين وتجهيز الأدوات والعيادة المتنقلة." },
-  { n: "٣", t: "يوم القافلة", d: "استقبال الحالات والكشف والعلاج مجاناً." },
-  { n: "٤", t: "المتابعة", d: "تحويل الحالات المحتاجة إلى عيادات الكلية." },
+  { n: "١", t: "اختيار المنطقة", d: "دراسة القرى والمناطق الأكثر احتياجاً وتحديد مكان القافلة." },
+  { n: "٢", t: "التجهيز", d: "تجهيز الأطباء والمتطوعين والأدوية والأدوات الطبية." },
+  { n: "٣", t: "يوم القافلة", d: "استقبال الأهالي والكشف وصرف العلاج مجاناً." },
+  { n: "٤", t: "المتابعة", d: "تحويل الحالات المحتاجة للمستشفيات والعيادات المتعاونة." },
 ];
 
 function Index() {
   return (
     <div dir="rtl" lang="ar" className="min-h-screen bg-background text-foreground font-arabic">
       <Link to="/event" className="block bg-accent px-6 py-2.5 text-center text-sm font-bold text-accent-foreground">
-        📢 جديد: يوم صحة الأسنان المجاني – الجمعة ٢٠ نوفمبر · <span className="underline">اعرف التفاصيل ←</span>
+        📢 جديد: فعالية Blue Code لصحة الأسنان – الجمعة ٢٠ نوفمبر · <span className="underline">اعرف التفاصيل ←</span>
       </Link>
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <span className="text-xl font-extrabold text-primary">رسالة · طب الأسنان</span>
+        <span className="text-xl font-extrabold text-primary">رسالة · القوافل الطبية</span>
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <a href="#register" className="rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground">سجّل الآن</a>
@@ -47,10 +47,10 @@ function Index() {
         <div className="max-w-3xl">
           <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">نشاط القوافل الطبية</span>
           <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-6xl">
-            ابتسامة لكل بيت.. <span className="text-primary">قافلة رسالة</span> لطب الأسنان
+            صحة لكل بيت.. <span className="text-primary">قوافل رسالة</span> الطبية
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            جمعية رسالة بالتعاون مع طلاب وأطباء كلية طب الأسنان تنظم قافلة طبية مجانية لخدمة أهالي القرى والمناطق الأكثر احتياجاً.
+            جمعية رسالة بتنظم قوافل طبية مجانية بأطباء ومتطوعين من تخصصات مختلفة، لخدمة أهالي القرى والمناطق الأكثر احتياجاً.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#register" className="rounded-full bg-primary px-7 py-3 font-bold text-primary-foreground">انضم كمتطوع</a>
@@ -71,8 +71,8 @@ function Index() {
             </div>
             <div>
               <span className="text-sm font-bold text-primary">إعلان · فعالية قادمة</span>
-              <h2 className="mt-1 text-2xl font-extrabold md:text-3xl">يوم صحة الأسنان المجاني 🦷</h2>
-              <p className="mt-2 text-muted-foreground">كشف وتنظيف وتوعية مجانية للكبار والأطفال مع أطباء كلية طب الأسنان.</p>
+              <h2 className="mt-1 text-2xl font-extrabold md:text-3xl">Blue Code 🦷</h2>
+              <p className="mt-2 text-muted-foreground">يوم مجاني لصحة الأسنان: كشف وتنظيف وتوعية للكبار والأطفال مع أطباء كلية طب الأسنان.</p>
             </div>
           </div>
           <span className="shrink-0 rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground">
@@ -83,7 +83,7 @@ function Index() {
 
       <section className="bg-primary py-12 text-primary-foreground">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 text-center md:grid-cols-4">
-          {[["+٥٠٠", "مستفيد متوقع"], ["+٨٠", "متطوع"], ["١٥", "طبيب مشرف"], ["٤", "خدمات علاجية"]].map(([n, l]) => (
+          {[["+٥٠٠", "مستفيد في كل قافلة"], ["+٨٠", "متطوع"], ["+١٥", "طبيب متطوع"], ["+٦", "تخصصات طبية"]].map(([n, l]) => (
             <div key={l}><div className="text-4xl font-extrabold">{n}</div><div className="mt-1 opacity-80">{l}</div></div>
           ))}
         </div>
@@ -103,7 +103,7 @@ function Index() {
           </p>
         </div>
         <div className="rounded-3xl bg-secondary p-8 shadow-soft">
-          <h2 className="text-lg font-bold text-secondary-foreground">تفاصيل الحدث</h2>
+          <h2 className="text-lg font-bold text-secondary-foreground">القافلة القادمة</h2>
           <dl className="mt-6 space-y-5">
             {[["📅 التاريخ", "الجمعة ٢٠ نوفمبر ٢٠٢٦"], ["⏰ الوقت", "٩ صباحاً – ٣ عصراً"], ["📍 المكان", "يُعلن قريباً"], ["💰 التكلفة", "مجاناً بالكامل"]].map(([k, v]) => (
               <div key={k} className="flex justify-between border-b border-border pb-3">
@@ -145,12 +145,12 @@ function Index() {
 
       <section id="register" className="mx-auto max-w-3xl px-6 py-20 text-center">
         <h2 className="text-3xl font-extrabold">كن جزءاً من الرسالة</h2>
-        <p className="mt-4 text-lg text-muted-foreground">سواء كنت طالباً متطوعاً أو تحتاج إلى كشف مجاني، تواصل معنا وسجّل اسمك.</p>
+        <p className="mt-4 text-lg text-muted-foreground">سواء كنت عايز تتطوع معانا أو محتاج كشف مجاني، سجّل اسمك وهنتواصل معاك.</p>
         <form onSubmit={(e) => { e.preventDefault(); alert("تم استلام طلبك، شكراً لك!"); }} className="mt-8 grid gap-3 text-right sm:grid-cols-2">
           <input required placeholder="الاسم بالكامل" className="rounded-xl border border-input bg-background px-4 py-3" />
           <input required placeholder="رقم الموبايل" className="rounded-xl border border-input bg-background px-4 py-3" />
           <select className="rounded-xl border border-input bg-background px-4 py-3 sm:col-span-2">
-            <option>متطوع (طالب بالكلية)</option>
+            <option>متطوع (طبيب / طالب / إداري)</option>
             <option>مستفيد (أحتاج كشفاً)</option>
           </select>
           <button className="rounded-xl bg-primary px-6 py-3 font-bold text-primary-foreground sm:col-span-2">إرسال</button>
@@ -158,7 +158,7 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        جمعية رسالة للأعمال الخيرية · فريق كلية طب الأسنان © ٢٠٢٦
+        جمعية رسالة للأعمال الخيرية · نشاط القوافل الطبية © ٢٠٢٦
       </footer>
     </div>
   );
