@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,6 +31,9 @@ const steps = [
 function Index() {
   return (
     <div dir="rtl" lang="ar" className="min-h-screen bg-background text-foreground font-arabic">
+      <Link to="/event" className="block bg-accent px-6 py-2.5 text-center text-sm font-bold text-accent-foreground">
+        📢 جديد: يوم صحة الأسنان المجاني – الجمعة ٢٠ نوفمبر · <span className="underline">اعرف التفاصيل ←</span>
+      </Link>
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <span className="text-xl font-extrabold text-primary">رسالة · طب الأسنان</span>
         <a href="#register" className="rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground">سجّل الآن</a>
@@ -61,6 +64,28 @@ function Index() {
             ))}
           </dl>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <Link
+          to="/event"
+          className="group flex flex-col gap-6 rounded-3xl border-2 border-primary bg-card p-8 shadow-soft transition-transform hover:-translate-y-1 md:flex-row md:items-center md:justify-between"
+        >
+          <div className="flex items-center gap-5">
+            <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+              <span className="text-3xl font-extrabold leading-none">٢٠</span>
+              <span className="text-xs font-bold">نوفمبر</span>
+            </div>
+            <div>
+              <span className="text-sm font-bold text-primary">إعلان · فعالية قادمة</span>
+              <h2 className="mt-1 text-2xl font-extrabold md:text-3xl">يوم صحة الأسنان المجاني 🦷</h2>
+              <p className="mt-2 text-muted-foreground">كشف وتنظيف وتوعية مجانية للكبار والأطفال مع أطباء كلية طب الأسنان.</p>
+            </div>
+          </div>
+          <span className="shrink-0 rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground">
+            التفاصيل والبرنامج ←
+          </span>
+        </Link>
       </section>
 
       <section className="bg-primary py-12 text-primary-foreground">
