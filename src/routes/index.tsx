@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { events } from "@/lib/events";
+import heroEmblem from "@/assets/hero_placeholder_emblem.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,31 +45,62 @@ function Index() {
           </span>
         ))}
       </div>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <span className="text-xl font-extrabold text-primary">رسالة · القوافل الطبية</span>
-        <div className="flex items-center gap-3">
-          <ThemeToggle />
-          <a href="#register" className="rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground">سجّل الآن</a>
+      <section className="relative overflow-hidden bg-hero text-hero-foreground">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-32 left-1/3 h-96 w-96 rounded-full bg-hero-accent/15 blur-3xl" />
+          <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-cta/25 blur-3xl" />
+          <div className="absolute right-10 top-24 h-72 w-72 rounded-full bg-hero-accent/10 blur-3xl" />
+          <div className="absolute left-16 top-40 h-20 w-20 rounded-full bg-hero-accent/20 blur-md" />
+          <div className="absolute bottom-24 right-1/4 h-12 w-12 rounded-full bg-cta/40 blur-md" />
+          <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-l from-transparent via-hero-accent/30 to-transparent" />
         </div>
-      </header>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="max-w-3xl">
-          <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">نشاط القوافل الطبية</span>
-          <h1 className="mt-5 text-4xl font-extrabold leading-tight md:text-6xl">
-            صحة لكل بيت.. <span className="text-primary">قوافل رسالة</span> الطبية
-          </h1>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            جمعية رسالة بتنظم قوافل طبية مجانية بأطباء ومتطوعين من تخصصات مختلفة، لخدمة أهالي القرى والمناطق الأكثر احتياجاً.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#register" className="rounded-full bg-primary px-7 py-3 font-bold text-primary-foreground">انضم كمتطوع</a>
-            <a href="#services" className="rounded-full border border-border px-7 py-3 font-bold">الخدمات</a>
+        <nav className="relative z-10 mx-auto mt-6 flex max-w-5xl items-center justify-between gap-4 rounded-full border border-hero-foreground/10 bg-hero-foreground/5 px-5 py-3 backdrop-blur">
+          <span className="text-lg font-extrabold text-hero-accent">رسالة</span>
+          <div className="hidden items-center gap-8 text-sm font-bold md:flex">
+            <a href="#top" className="hover:text-hero-accent">الرئيسية</a>
+            <a href="#about" className="hover:text-hero-accent">عن القوافل</a>
+            <a href="#events" className="hover:text-hero-accent">الفعاليات</a>
+            <a href="#services" className="hover:text-hero-accent">الخدمات</a>
+          </div>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <a href="#register" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta">سجّل الآن</a>
+          </div>
+        </nav>
+
+        <div id="top" className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-[2fr_3fr] md:py-28">
+          <div className="flex justify-center">
+            <img
+              src={heroEmblem}
+              alt="صورة مؤقتة"
+              width={1024}
+              height={1024}
+              className="w-64 drop-shadow-glow md:w-80"
+            />
+          </div>
+
+          <div>
+            <div className="border-s-2 border-hero-accent ps-4">
+              <p className="text-sm font-bold text-hero-accent">أنت مش لوحدك.</p>
+              <p className="mt-1 text-xl font-bold">إحنا هنا عشان نوصّل الرعاية الطبية لكل بيت.</p>
+            </div>
+            <p dir="ltr" className="mt-8 text-right text-xs font-bold tracking-[0.35em] text-hero-accent">RESALA MEDICAL CARAVANS</p>
+            <h1 className="mt-2 font-calligraphy text-7xl leading-[1.3] text-hero-foreground drop-shadow-glow md:text-9xl">
+              قوافل <span className="text-hero-accent">رسالة</span>
+            </h1>
+            <p className="mt-4 text-lg text-hero-foreground/70">خلف كل قافلة.. أطباء ومتطوعين، وخلف كل كشف.. حكاية.</p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a href="#register" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta">سجّل الآن ●</a>
+              <a href="#events" className="rounded-full border border-hero-foreground/20 px-6 py-3.5 font-bold">
+                📅 {events[0]?.day} {events[0]?.month}
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-16 lg:grid-cols-2">
+      <section id="events" className="mx-auto grid max-w-6xl gap-6 px-6 py-16 lg:grid-cols-2">
         {events.map((ev) => (
           <Link
             key={ev.slug}
@@ -114,7 +146,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 pt-20 md:grid-cols-2 md:items-center">
+      <section id="about" className="mx-auto grid max-w-6xl gap-10 px-6 pt-20 md:grid-cols-2 md:items-center">
         <div>
           <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">عن نشاط القوافل الطبية</span>
           <h2 className="mt-5 text-3xl font-extrabold leading-tight md:text-4xl">

@@ -60,6 +60,14 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-logo-surface: var(--logo-surface);
+  --color-hero: var(--hero);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-accent: var(--hero-accent);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --font-calligraphy: 'Aref Ruqaa', serif;
+  --shadow-cta: 0 10px 30px -8px color-mix(in oklab, var(--cta) 70%, transparent);
+  --drop-shadow-glow: 0 0 28px color-mix(in oklab, var(--hero-accent) 55%, transparent);
   --font-arabic: 'Cairo', sans-serif;
   --shadow-soft: 0 20px 50px -20px color-mix(in oklab, var(--primary) 35%, transparent);
 }
@@ -82,6 +90,11 @@
   --accent-foreground: oklch(0.35 0.08 70);
   /* Partner logos ship on white backgrounds, so they always sit on white. */
   --logo-surface: oklch(1 0 0);
+  --hero: oklch(0.17 0.03 215);
+  --hero-foreground: oklch(0.97 0.01 190);
+  --hero-accent: oklch(0.78 0.11 180);
+  --cta: oklch(0.5 0.19 25);
+  --cta-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.929 0.013 255.508);
@@ -118,6 +131,11 @@
   --accent: oklch(0.4 0.08 75);
   --accent-foreground: oklch(0.95 0.05 85);
   --logo-surface: oklch(1 0 0);
+  --hero: oklch(0.17 0.03 215);
+  --hero-foreground: oklch(0.97 0.01 190);
+  --hero-accent: oklch(0.78 0.11 180);
+  --cta: oklch(0.5 0.19 25);
+  --cta-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(1 0 0 / 10%);
