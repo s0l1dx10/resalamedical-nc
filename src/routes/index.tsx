@@ -45,17 +45,36 @@ function Index() {
           </span>
         ))}
       </div>
-      <section className="relative overflow-hidden bg-hero text-hero-foreground">
+      <section className="relative flex min-h-[calc(100svh-2.5rem)] flex-col overflow-hidden bg-hero text-hero-foreground">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 left-1/3 h-96 w-96 rounded-full bg-hero-accent/15 blur-3xl" />
-          <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-cta/25 blur-3xl" />
-          <div className="absolute right-10 top-24 h-72 w-72 rounded-full bg-hero-accent/10 blur-3xl" />
-          <div className="absolute left-16 top-40 h-20 w-20 rounded-full bg-hero-accent/20 blur-md" />
-          <div className="absolute bottom-24 right-1/4 h-12 w-12 rounded-full bg-cta/40 blur-md" />
-          <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-l from-transparent via-hero-accent/30 to-transparent" />
+          <div className="animate-breathe absolute -top-32 left-1/3 h-96 w-96 rounded-full bg-hero-accent/15 blur-3xl" />
+          <div className="animate-breathe absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-cta/25 blur-3xl [animation-delay:-3s]" />
+          <div className="animate-breathe absolute right-10 top-24 h-72 w-72 rounded-full bg-hero-accent/10 blur-3xl [animation-delay:-5s]" />
+          {[
+            { c: "left-[8%] top-[22%] text-5xl", d: "0s", t: "＋" },
+            { c: "right-[12%] top-[70%] text-4xl", d: "-4s", t: "＋" },
+            { c: "left-[45%] top-[12%] text-3xl", d: "-2s", t: "＋" },
+            { c: "left-[20%] bottom-[12%] text-6xl", d: "-6s", t: "＋" },
+            { c: "right-[35%] bottom-[20%] text-2xl", d: "-1s", t: "＋" },
+          ].map((f, i) => (
+            <span key={i} className={`animate-float absolute font-black text-hero-accent/15 ${f.c}`} style={{ animationDelay: f.d }}>{f.t}</span>
+          ))}
+          {[
+            "left-[30%] top-[30%] rotate-45",
+            "right-[8%] top-[18%] -rotate-12",
+            "left-[6%] bottom-[30%] rotate-12",
+          ].map((c, i) => (
+            <span key={i} className={`animate-float absolute h-5 w-12 rounded-full border-2 border-hero-accent/20 ${c}`} style={{ animationDelay: `${-i * 3}s` }} />
+          ))}
+          <span className="animate-ripple absolute left-[15%] top-[55%] h-24 w-24 rounded-full border border-hero-accent/30" />
+          <span className="animate-ripple absolute right-[25%] top-[25%] h-32 w-32 rounded-full border border-cta/30 [animation-delay:-2s]" />
+          <svg className="absolute inset-x-0 top-1/2 h-24 w-full -translate-y-1/2 text-hero-accent/40" viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path className="animate-ecg" fill="none" stroke="currentColor" strokeWidth="2" pathLength={1}
+              d="M0 50 H380 L400 50 L415 20 L430 85 L450 5 L470 95 L485 50 H700 L715 35 L730 60 L745 50 H1200" />
+          </svg>
         </div>
 
-        <nav className="relative z-10 mx-auto mt-6 flex max-w-5xl items-center justify-between gap-4 rounded-full border border-hero-foreground/10 bg-hero-foreground/5 px-5 py-3 backdrop-blur">
+        <nav className="relative z-10 mx-auto mt-6 flex w-[calc(100%-2rem)] max-w-5xl items-center justify-between gap-4 rounded-full border border-hero-foreground/10 bg-hero-foreground/5 px-5 py-3 backdrop-blur">
           <span className="text-lg font-extrabold text-hero-accent">رسالة</span>
           <div className="hidden items-center gap-8 text-sm font-bold md:flex">
             <a href="#top" className="hover:text-hero-accent">الرئيسية</a>
@@ -69,7 +88,7 @@ function Index() {
           </div>
         </nav>
 
-        <div id="top" className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-[2fr_3fr] md:py-28">
+        <div id="top" className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-12 px-6 py-12 md:grid-cols-[2fr_3fr]">
           <div className="flex justify-center">
             <img
               src={heroEmblem}
@@ -98,6 +117,9 @@ function Index() {
             </div>
           </div>
         </div>
+        <a href="#events" aria-label="انزل لأسفل" className="relative z-10 mx-auto mb-6 flex h-10 w-6 justify-center rounded-full border-2 border-hero-foreground/30 pt-2">
+          <span className="animate-scroll-dot h-2 w-1 rounded-full bg-hero-accent" />
+        </a>
       </section>
 
       <section id="events" className="mx-auto grid max-w-6xl gap-6 px-6 py-16 lg:grid-cols-2">
