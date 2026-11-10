@@ -84,7 +84,7 @@ function Index() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a href="#register" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta">سجّل الآن</a>
+            <a href="#register" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta">تطوّع معنا</a>
           </div>
         </nav>
 
@@ -110,7 +110,7 @@ function Index() {
             </h1>
             <p className="mt-4 text-lg text-hero-foreground/70">خلف كل قافلة.. أطباء ومتطوعين، وخلف كل كشف.. حكاية.</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#register" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta">سجّل الآن ●</a>
+              <a href="#register" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta">تطوّع معنا ●</a>
               <a href="#events" className="rounded-full border border-hero-foreground/20 px-6 py-3.5 font-bold">
                 📅 {events[0]?.day} {events[0]?.month}
               </a>

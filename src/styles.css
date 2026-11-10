@@ -178,3 +178,7 @@
 @utility animate-ecg { stroke-dasharray: 1; animation: ecg 4s linear infinite; }
 @utility animate-scroll-dot { animation: scroll-dot 1.6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .animate-float, .animate-breathe, .animate-ripple, .animate-ecg, .animate-scroll-dot { animation: none; } }
+
+[id] {
+  scroll-margin-top: 1.5rem;
+}
