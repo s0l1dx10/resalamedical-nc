@@ -6,10 +6,10 @@ import heroEmblem from "@/assets/hero_placeholder_emblem.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "قوافل رسالة الطبية | كشف وعلاج مجاني" },
+      { title: "قوافل طبية جمعية رسالة | كشف وعلاج مجاني" },
       { name: "description", content: "نشاط القوافل الطبية بجمعية رسالة: كشف وعلاج وأدوية مجانية لأهالي القرى والمناطق الأكثر احتياجاً." },
-      { property: "og:title", content: "قوافل رسالة الطبية | كشف وعلاج مجاني" },
-      { property: "og:description", content: "انضم كمتطوع أو سجّل للكشف المجاني في قوافل رسالة الطبية." },
+      { property: "og:title", content: "قوافل طبية جمعية رسالة | كشف وعلاج مجاني" },
+      { property: "og:description", content: "انضم كمتطوع أو سجّل للكشف المجاني في قوافل طبية جمعية رسالة." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -105,8 +105,8 @@ function Index() {
               <p className="mt-1 text-xl font-bold">إحنا هنا عشان نوصّل الرعاية الطبية لكل بيت.</p>
             </div>
             <p dir="ltr" className="mt-8 text-right text-xs font-bold tracking-[0.35em] text-hero-accent">RESALA MEDICAL CARAVANS</p>
-            <h1 className="mt-2 font-calligraphy text-7xl leading-[1.3] text-hero-foreground drop-shadow-glow md:text-9xl">
-              قوافل <span className="text-hero-accent">رسالة</span>
+            <h1 className="mt-2 font-calligraphy text-7xl leading-[1.3] text-hero-foreground drop-shadow-glow md:text-8xl">
+              قوافل طبية <span className="block text-hero-accent">جمعية رسالة</span>
             </h1>
             <p className="mt-4 text-lg text-hero-foreground/70">خلف كل قافلة.. أطباء ومتطوعين، وخلف كل كشف.. حكاية.</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -172,7 +172,7 @@ function Index() {
         <div>
           <span className="inline-block rounded-full bg-accent px-4 py-1 text-sm font-bold text-accent-foreground">عن نشاط القوافل الطبية</span>
           <h2 className="mt-5 text-3xl font-extrabold leading-tight md:text-4xl">
-            قوافل <span className="text-primary">رسالة</span> الطبية.. الخير يوصل لحد باب البيت
+            قوافل طبية <span className="text-primary">جمعية رسالة</span>.. الخير يوصل لحد باب البيت
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
             نشاط القوافل الطبية في جمعية رسالة بيطلع بشكل دوري للقرى والمناطق الأكثر احتياجاً، ومعاه أطباء ومتطوعين من تخصصات مختلفة: باطنة وأطفال ورمد وجلدية وأسنان وغيرها.

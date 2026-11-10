@@ -10,7 +10,7 @@ export const Route = createFileRoute("/events/$slug")({
   },
   head: ({ loaderData }) => {
     const e = loaderData?.event;
-    if (!e) return { meta: [{ title: "فعالية غير موجودة | قوافل رسالة" }, { name: "robots", content: "noindex" }] };
+    if (!e) return { meta: [{ title: "فعالية غير موجودة | قوافل طبية جمعية رسالة" }, { name: "robots", content: "noindex" }] };
     const title = `${e.name} | ${e.subtitle} من رسالة`;
     return {
       meta: [
