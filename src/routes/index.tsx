@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { events } from "@/lib/events";
-import heroEmblem from "@/assets/hero_placeholder_emblem.png";
+import resalaLogo from "@/assets/resala_caravans_logo.png.asset.json";
+import shirtImg from "@/assets/resala_caravans_shirt.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -64,7 +65,7 @@ function Index() {
         </div>
 
         <nav className="relative z-10 mx-auto mt-6 flex w-[calc(100%-2rem)] max-w-5xl items-center justify-between gap-4 rounded-full border border-hero-foreground/10 bg-hero-foreground/5 px-5 py-3 backdrop-blur">
-          <span className="text-lg font-extrabold text-hero-accent">رسالة</span>
+          <span className="flex h-11 items-center rounded-xl bg-logo-surface px-2"><img src={resalaLogo.url} alt="شعار قوافل طبية جمعية رسالة" className="h-9 w-auto" /></span>
           <div className="hidden items-center gap-8 text-sm font-bold md:flex">
             <a href="#top" className="hover:text-hero-accent">الرئيسية</a>
             <a href="#about" className="hover:text-hero-accent">عن القوافل</a>
@@ -94,18 +95,18 @@ function Index() {
         <div id="top" className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-12 px-6 py-12 md:grid-cols-[2fr_3fr]">
           <div className="flex justify-center">
             <img
-              src={heroEmblem}
-              alt="صورة مؤقتة"
-              width={1024}
-              height={1024}
-              className="w-64 drop-shadow-glow md:w-80"
+              src={shirtImg.url}
+              alt="تيشرت قوافل طبية جمعية رسالة: إيد في إيد لإنقاذ حياة مريض"
+              width={1280}
+              height={853}
+              className="w-full max-w-md rounded-3xl drop-shadow-glow transition-transform duration-500 hover:scale-[1.03]"
             />
           </div>
 
           <div>
             <div className="border-s-2 border-hero-accent ps-4">
-              <p className="text-sm font-bold text-hero-accent">أنت مش لوحدك.</p>
-              <p className="mt-1 text-xl font-bold">إحنا هنا عشان نوصّل الرعاية الطبية لكل بيت.</p>
+              <p className="text-sm font-bold text-hero-accent">إيد في إيد</p>
+              <p className="mt-1 text-xl font-bold">لإنقاذ حياة مريض.</p>
             </div>
             <p dir="ltr" className="mt-8 text-right text-xs font-bold tracking-[0.35em] text-hero-accent">RESALA MEDICAL CARAVANS</p>
             <h1 className="mt-2 font-calligraphy text-7xl leading-[1.3] text-hero-foreground drop-shadow-glow md:text-8xl">
