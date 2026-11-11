@@ -1,3 +1,4 @@
+import kmLogo from "@/assets/km_academy_logo.png.asset.json";
 import medsideLogo from "@/assets/medside_logo.png.asset.json";
 
 export type CaravanEvent = {
@@ -11,7 +12,7 @@ export type CaravanEvent = {
   month: string;
   details: [string, string][];
   organizer?: string;
-  partner?: { name: string; url: string; logo?: string };
+  partner?: { name: string; url?: string; logo?: string };
   instructors?: { ar: string; en: string; bio: string }[];
   topics?: { ar: string; en: string }[];
   agenda?: { time: string; t: string; d: string }[];
@@ -101,6 +102,7 @@ export const events: CaravanEvent[] = [
       ["📍 المكان", "يُعلن قريباً"],
       ["💰 التكلفة", "مجاناً بالكامل"],
     ],
+    partner: { name: "KM Academy", logo: kmLogo.url },
     agenda: [
       { time: "٨:٠٠", t: "الاستقبال والتسجيل", d: "فتح ملف لكل شخص وتحديد التحاليل المطلوبة." },
       { time: "٨:٣٠", t: "سحب العينات", d: "سحب عينات الدم بأدوات معقمة على يد أخصائيين." },

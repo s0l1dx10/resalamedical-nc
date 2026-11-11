@@ -151,21 +151,21 @@ function EventPage() {
                   <img
                     src={event.partner.logo}
                     alt={`شعار ${event.partner.name}`}
-                    className="aspect-[16/9] w-full object-cover"
+                    className="aspect-[16/9] w-full object-contain"
                     loading="lazy"
                   />
                 </div>
               ) : (
                 <p dir="ltr" className="mt-1 text-lg font-extrabold">{event.partner.name}</p>
               )}
-              <a
+              {event.partner.url && (<a
                 href={event.partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-block rounded-full border border-border px-5 py-2 text-sm font-bold"
               >
                 صفحتهم على فيسبوك ↗
-              </a>
+              </a>)}
             </div>
           )}
         </aside>
