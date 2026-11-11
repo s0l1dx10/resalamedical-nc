@@ -74,26 +74,26 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.995 0.003 190);
+  --background: oklch(0.995 0.003 232);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.52 0.12 190);
+  --primary: oklch(0.6 0.13 232);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.03 190);
+  --secondary: oklch(0.96 0.03 232);
   --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.97 0.01 190);
+  --muted: oklch(0.97 0.01 232);
   --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.93 0.07 85);
-  --accent-foreground: oklch(0.35 0.08 70);
+  --accent: oklch(0.94 0.04 232);
+  --accent-foreground: oklch(0.38 0.12 235);
   /* Partner logos ship on white backgrounds, so they always sit on white. */
   --logo-surface: oklch(1 0 0);
-  --hero: oklch(0.17 0.03 215);
-  --hero-foreground: oklch(0.97 0.01 190);
-  --hero-accent: oklch(0.78 0.11 180);
-  --cta: oklch(0.5 0.19 25);
+  --hero: oklch(0.17 0.03 232);
+  --hero-foreground: oklch(0.97 0.01 232);
+  --hero-accent: oklch(0.78 0.11 232);
+  --cta: oklch(0.59 0.22 17);
   --cta-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
@@ -117,24 +117,24 @@
 
 .dark {
   --background: oklch(0.17 0.02 200);
-  --foreground: oklch(0.96 0.01 190);
+  --foreground: oklch(0.96 0.01 232);
   --card: oklch(0.21 0.025 200);
-  --card-foreground: oklch(0.96 0.01 190);
+  --card-foreground: oklch(0.96 0.01 232);
   --popover: oklch(0.21 0.025 200);
-  --popover-foreground: oklch(0.96 0.01 190);
-  --primary: oklch(0.68 0.12 185);
+  --popover-foreground: oklch(0.96 0.01 232);
+  --primary: oklch(0.68 0.12 232);
   --primary-foreground: oklch(0.15 0.03 200);
   --secondary: oklch(0.25 0.035 195);
-  --secondary-foreground: oklch(0.96 0.01 190);
+  --secondary-foreground: oklch(0.96 0.01 232);
   --muted: oklch(0.23 0.025 200);
   --muted-foreground: oklch(0.72 0.03 200);
-  --accent: oklch(0.4 0.08 75);
-  --accent-foreground: oklch(0.95 0.05 85);
+  --accent: oklch(0.32 0.07 232);
+  --accent-foreground: oklch(0.92 0.05 232);
   --logo-surface: oklch(1 0 0);
-  --hero: oklch(0.17 0.03 215);
-  --hero-foreground: oklch(0.97 0.01 190);
-  --hero-accent: oklch(0.78 0.11 180);
-  --cta: oklch(0.5 0.19 25);
+  --hero: oklch(0.17 0.03 232);
+  --hero-foreground: oklch(0.97 0.01 232);
+  --hero-accent: oklch(0.78 0.11 232);
+  --cta: oklch(0.59 0.22 17);
   --cta-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
@@ -186,3 +186,10 @@
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
+@layer base {
+  button, a[href] { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), [type="submit"] { transition: transform .15s ease, filter .15s ease; }
+  button:not(:disabled):active, [type="submit"]:active { transform: scale(0.96); }
+  button:not(:disabled):hover { filter: brightness(1.08); }
+}

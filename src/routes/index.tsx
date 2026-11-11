@@ -34,18 +34,7 @@ const steps = [
 function Index() {
   return (
     <div dir="rtl" lang="ar" className="min-h-screen bg-background text-foreground font-arabic">
-      <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-accent px-6 py-2.5 text-center text-sm font-bold text-accent-foreground">
-        <span>📢 فعاليات قادمة:</span>
-        {events.map((ev, i) => (
-          <span key={ev.slug} className="flex items-center gap-3">
-            {i > 0 && <span aria-hidden>·</span>}
-            <Link to="/events/$slug" params={{ slug: ev.slug }} className="underline">
-              {ev.name} ({ev.day} {ev.month})
-            </Link>
-          </span>
-        ))}
-      </div>
-      <section className="relative flex min-h-[calc(100svh-2.5rem)] flex-col overflow-hidden bg-hero text-hero-foreground">
+      <section className="relative flex min-h-svh flex-col overflow-hidden bg-hero text-hero-foreground">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="animate-breathe absolute -top-32 left-1/3 h-96 w-96 rounded-full bg-hero-accent/15 blur-3xl" />
           <div className="animate-breathe absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-cta/25 blur-3xl [animation-delay:-3s]" />
@@ -84,9 +73,23 @@ function Index() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a href="#register" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta">تطوّع معنا</a>
+            <a href="#register" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">تطوّع معنا</a>
           </div>
         </nav>
+        <div className="relative z-10 mx-auto mt-4 flex w-[calc(100%-2rem)] max-w-5xl flex-wrap items-center justify-center gap-3">
+          <span className="text-xs font-bold tracking-widest text-hero-foreground/60">فعاليات قادمة</span>
+          {events.map((ev) => (
+            <Link key={ev.slug} to="/events/$slug" params={{ slug: ev.slug }}
+              className="group flex items-center gap-3 rounded-full border border-hero-accent/30 bg-hero-foreground/5 py-1.5 pe-4 ps-1.5 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-hero-accent hover:bg-hero-accent/15 active:scale-95">
+              <span className="flex h-9 w-9 flex-col items-center justify-center rounded-full bg-hero-accent text-hero leading-none">
+                <span className="text-sm font-extrabold">{ev.day}</span>
+              </span>
+              <span className="text-sm font-bold">{ev.name} {ev.emoji}</span>
+              <span className="text-xs text-hero-foreground/60">{ev.month}</span>
+              <span className="transition-transform group-hover:-translate-x-1">←</span>
+            </Link>
+          ))}
+        </div>
 
         <div id="top" className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-12 px-6 py-12 md:grid-cols-[2fr_3fr]">
           <div className="flex justify-center">
@@ -110,7 +113,7 @@ function Index() {
             </h1>
             <p className="mt-4 text-lg text-hero-foreground/70">خلف كل قافلة.. أطباء ومتطوعين، وخلف كل كشف.. حكاية.</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#register" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta">تطوّع معنا ●</a>
+              <a href="#register" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">تطوّع معنا ●</a>
               <a href="#events" className="rounded-full border border-hero-foreground/20 px-6 py-3.5 font-bold">
                 📅 {events[0]?.day} {events[0]?.month}
               </a>
@@ -128,7 +131,7 @@ function Index() {
             key={ev.slug}
             to="/events/$slug"
             params={{ slug: ev.slug }}
-            className="group flex flex-col justify-between gap-6 rounded-3xl border-2 border-primary bg-card p-8 shadow-soft transition-transform hover:-translate-y-1"
+            className="group flex flex-col justify-between gap-6 rounded-3xl border-2 border-primary bg-card p-8 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-cta hover:border-cta active:scale-[0.98]"
           >
             <div className="flex items-start gap-5">
               <div className="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-2xl bg-primary text-primary-foreground">
@@ -152,7 +155,7 @@ function Index() {
               ) : (
                 <span />
               )}
-              <span className="rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground">
+              <span className="rounded-full bg-primary px-7 py-3 text-center font-bold text-primary-foreground transition-colors group-hover:bg-cta">
                 التفاصيل والبرنامج ←
               </span>
             </div>
