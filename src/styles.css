@@ -180,5 +180,9 @@
 @media (prefers-reduced-motion: reduce) { .animate-float, .animate-breathe, .animate-ripple, .animate-ecg, .animate-scroll-dot { animation: none; } }
 
 [id] {
-  scroll-margin-top: 1.5rem;
+  scroll-margin-top: 1rem;
 }
+@media (max-width: 767px) { [id] { scroll-margin-top: 0.5rem; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
