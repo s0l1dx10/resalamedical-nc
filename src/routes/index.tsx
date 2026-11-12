@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       { title: "قوافل طبية جمعية رسالة | كشف وعلاج مجاني" },
       { name: "description", content: "نشاط القوافل الطبية بجمعية رسالة: كشف وعلاج وأدوية مجانية لأهالي القرى والمناطق الأكثر احتياجاً." },
       { property: "og:title", content: "قوافل طبية جمعية رسالة | كشف وعلاج مجاني" },
-      { property: "og:description", content: "انضم كمتطوع أو سجّل للكشف المجاني في قوافل طبية جمعية رسالة." },
+      { property: "og:description", content: "الفعاليات القادمة من قوافل طبية جمعية رسالة: Code Blue وBeyond the Sample." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -74,7 +74,7 @@ function Index() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a href="#register" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">تطوّع معنا</a>
+            <a href="#events" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">الفعاليات القادمة</a>
           </div>
         </nav>
         <div className="relative z-10 mx-auto mt-4 flex w-[calc(100%-2rem)] max-w-5xl flex-wrap items-center justify-center gap-3">
@@ -114,7 +114,7 @@ function Index() {
             </h1>
             <p className="mt-4 text-lg text-hero-foreground/70">خلف كل قافلة.. أطباء ومتطوعين، وخلف كل كشف.. حكاية.</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#register" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">تطوّع معنا ●</a>
+              <a href="#events" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">احجز في الفعاليات ●</a>
               <a href="#events" className="rounded-full border border-hero-foreground/20 px-6 py-3.5 font-bold">
                 📅 {events[0]?.day} {events[0]?.month}
               </a>
@@ -224,20 +224,6 @@ function Index() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section id="register" className="mx-auto max-w-3xl px-6 py-20 text-center">
-        <h2 className="text-3xl font-extrabold">كن جزءاً من الرسالة</h2>
-        <p className="mt-4 text-lg text-muted-foreground">سواء كنت عايز تتطوع معانا أو محتاج كشف مجاني، سجّل اسمك وهنتواصل معاك.</p>
-        <form onSubmit={(e) => { e.preventDefault(); alert("تم استلام طلبك، شكراً لك!"); }} className="mt-8 grid gap-3 text-right sm:grid-cols-2">
-          <input required placeholder="الاسم بالكامل" className="rounded-xl border border-input bg-background px-4 py-3" />
-          <input required placeholder="رقم الموبايل" className="rounded-xl border border-input bg-background px-4 py-3" />
-          <select className="rounded-xl border border-input bg-background px-4 py-3 sm:col-span-2">
-            <option>متطوع (طبيب / طالب / إداري)</option>
-            <option>مستفيد (أحتاج كشفاً)</option>
-          </select>
-          <button className="rounded-xl bg-primary px-6 py-3 font-bold text-primary-foreground sm:col-span-2">إرسال</button>
-        </form>
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">

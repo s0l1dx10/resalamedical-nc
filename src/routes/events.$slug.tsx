@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getEvent } from "@/lib/events";
+import { CodeBlueForm } from "@/components/CodeBlueForm";
 
 export const Route = createFileRoute("/events/$slug")({
   loader: ({ params }) => {
@@ -84,7 +85,11 @@ function EventPage() {
               <div className="mt-8 grid gap-5 sm:grid-cols-3">
                 {event.instructors.map((p) => (
                   <div key={p.en} className="rounded-2xl border border-border bg-card p-6">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-2xl">🩺</div>
+                    {p.photo ? (
+                      <img src={p.photo} alt={p.ar} loading="lazy" className="aspect-[4/5] w-full rounded-xl bg-secondary object-cover object-top" />
+                    ) : (
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-2xl">🩺</div>
+                    )}
                     <h3 className="mt-4 text-lg font-bold">{p.ar}</h3>
                     <p dir="ltr" className="text-right text-sm font-bold text-primary">{p.en}</p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.bio}</p>
@@ -136,13 +141,18 @@ function EventPage() {
               </div>
             ))}
           </dl>
-          <Link
-            to="/"
-            hash="register"
-            className="mt-8 block rounded-full bg-primary px-6 py-3 text-center font-bold text-primary-foreground"
-          >
-            احجز مكانك الآن
-          </Link>
+          {event.mapUrl && (
+            <a href={event.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-6 block rounded-full border border-border px-6 py-3 text-center font-bold">
+              📍 افتح المكان على الخريطة ↗
+            </a>
+          )}
+          {event.hasRegistration ? (
+            <a href="#register" className="mt-3 block rounded-full bg-cta px-6 py-3 text-center font-bold text-cta-foreground shadow-cta transition-all hover:brightness-110 active:scale-95">
+              احجز مكانك الآن
+            </a>
+          ) : (
+            <p className="mt-6 rounded-2xl bg-card px-4 py-3 text-center text-sm font-bold text-muted-foreground">التسجيل هيفتح قريباً</p>
+          )}
           {event.partner && (
             <div className="mt-6 rounded-2xl bg-card p-5 text-center">
               <p className="text-sm text-muted-foreground">بالتعاون مع</p>
@@ -170,6 +180,14 @@ function EventPage() {
           )}
         </aside>
       </section>
+
+      {event.hasRegistration && (
+        <section id="register" className="mx-auto max-w-3xl px-6 pb-20">
+          <h2 className="text-3xl font-extrabold">التسجيل في {event.name}</h2>
+          <p className="mt-2 mb-6 text-muted-foreground">املا بياناتك واختار الشهادة وارفع صورة إيصال الدفع.</p>
+          <CodeBlueForm />
+        </section>
+      )}
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
         جمعية رسالة للأعمال الخيرية · نشاط القوافل الطبية © ٢٠٢٦

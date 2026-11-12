@@ -1,5 +1,8 @@
 import kmLogo from "@/assets/km_academy_logo.png.asset.json";
 import medsideLogo from "@/assets/medside_logo.png.asset.json";
+import drBeheiry from "@/assets/dr_ahmed_elbeheiry.png.asset.json";
+import drIsmail from "@/assets/dr_ismail_ali.png.asset.json";
+import drSaady from "@/assets/dr_ahmed_elsaady.png.asset.json";
 
 export type CaravanEvent = {
   slug: string;
@@ -13,7 +16,9 @@ export type CaravanEvent = {
   details: [string, string][];
   organizer?: string;
   partner?: { name: string; url?: string; logo?: string };
-  instructors?: { ar: string; en: string; bio: string }[];
+  instructors?: { ar: string; en: string; bio: string; photo?: string }[];
+  mapUrl?: string;
+  hasRegistration?: boolean;
   topics?: { ar: string; en: string }[];
   agenda?: { time: string; t: string; d: string }[];
   bring?: string[];
@@ -29,15 +34,17 @@ export const events: CaravanEvent[] = [
       "تدريب عملي على الإسعافات الأولية والإنعاش القلبي الرئوي مع مدربين معتمدين من جمعية القلب الأمريكية، بتنظيم قوافل طبية مدينة نصر وشركة MedSide.",
     intro:
       "تدريب عملي ينظمه نشاط قوافل طبية مدينة نصر بجمعية رسالة بالتعاون مع شركة MedSide، تتعلم فيه إزاي تتصرف صح في أول دقايق من أي حالة طوارئ: من تقييم المكان والمصاب لحد الإنعاش القلبي الرئوي ووضع الإفاقة.",
-    day: "٢٠",
+    day: "١٧",
     month: "نوفمبر",
     details: [
-      ["📅 التاريخ", "الجمعة ٢٠ نوفمبر ٢٠٢٦"],
-      ["⏰ الوقت", "يُعلن قريباً"],
-      ["📍 المكان", "يُعلن قريباً"],
+      ["📅 التاريخ", "الثلاثاء ١٧ نوفمبر ٢٠٢٦"],
+      ["⏰ الوقت", "٤:٣٠ مساءً"],
+      ["📍 المكان", "مسرح رسالة مدينة نصر"],
       ["🤝 التنظيم", "قوافل طبية مدينة نصر × MedSide"],
     ],
     organizer: "قوافل طبية مدينة نصر",
+    mapUrl: "https://maps.app.goo.gl/nEUoNHyRMLdrnTCY9",
+    hasRegistration: true,
     partner: {
       name: "MedSide Company",
       url: "https://www.facebook.com/share/1PtzdbPcVA/?mibextid=wwXIfr",
@@ -48,16 +55,19 @@ export const events: CaravanEvent[] = [
         ar: "د. أحمد البحيري",
         en: "Dr. Ahmed El-Beheiry",
         bio: "معيد بكلية الطب، ومدرب معتمد من جمعية القلب الأمريكية (AHA) والهلال الأحمر المصري واتحاد الأطباء العرب.",
+        photo: drBeheiry.url,
       },
       {
         ar: "د. إسماعيل علي",
         en: "Dr. Ismail Ali",
         bio: "مدرب معتمد من المجلس الأوروبي للإنعاش (ERC) ومتخصص في الإنعاش القلبي الرئوي (CPR)، ومدرب معتمد من جمعية القلب الأمريكية (AHA).",
+        photo: drIsmail.url,
       },
       {
         ar: "د. أحمد السعدي",
         en: "Dr. Ahmed El-Saady",
         bio: "مدرب معتمد للإسعافات الأولية ورعاية الطوارئ من جمعية القلب الأمريكية (AHA).",
+        photo: drSaady.url,
       },
     ],
     topics: [
@@ -94,11 +104,11 @@ export const events: CaravanEvent[] = [
     summary: "تحاليل دم وسكر ووظائف كلى وكبد مجاناً، مع شرح النتائج وتوجيه كل حالة للطبيب المناسب.",
     intro:
       "يوم مخصص للتحاليل الطبية المجانية، ينظمه فريق جمعية رسالة مع متطوعين من الأطباء وأخصائيي المعامل. مش بس بناخد العينة.. بنشرح لك النتيجة ونوجهك للخطوة الجاية.",
-    day: "١١",
-    month: "ديسمبر",
+    day: "١٤",
+    month: "نوفمبر",
     details: [
-      ["📅 التاريخ", "الجمعة ١١ ديسمبر ٢٠٢٦"],
-      ["⏰ الوقت", "٨ صباحاً – ٢ ظهراً"],
+      ["📅 التاريخ", "١٤ و١٥ و١٦ نوفمبر ٢٠٢٦"],
+      ["⏰ الوقت", "١٤ نوفمبر ٤:٠٠ م · ١٥ و١٦ نوفمبر ٤:٣٠ م"],
       ["📍 المكان", "يُعلن قريباً"],
       ["💰 التكلفة", "مجاناً بالكامل"],
     ],
