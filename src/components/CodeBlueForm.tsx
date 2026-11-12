@@ -67,6 +67,12 @@ export function CodeBlueForm() {
         </div>
       </fieldset>
 
+      <div className="rounded-2xl border-2 border-dashed border-primary/50 bg-primary/5 p-4 text-center">
+        <p className="text-sm font-bold">حوّل قيمة الباقة على الرقم ده (فودافون كاش / إنستاباي)</p>
+        <p dir="ltr" className="mt-1 text-2xl font-extrabold tracking-wider text-primary">01091661816</p>
+        <button type="button" onClick={() => navigator.clipboard?.writeText("01091661816")} className="mt-2 rounded-full border border-border px-4 py-1 text-sm font-bold active:scale-95">نسخ الرقم</button>
+      </div>
+
       <label className="block space-y-1.5"><span className="text-sm font-bold">صورة إيصال الدفع</span>
         <input name="receipt" type="file" required accept="image/*,application/pdf"
           onChange={(e) => { const f = e.target.files?.[0]; setPreview(f && f.type.startsWith("image/") ? URL.createObjectURL(f) : null); }}
