@@ -19,6 +19,7 @@ export type CaravanEvent = {
   instructors?: { ar: string; en: string; bio: string; photo?: string }[];
   mapUrl?: string;
   hasRegistration?: boolean;
+  externalRegistrationUrl?: string;
   topics?: { ar: string; en: string }[];
   topicsTitle?: string;
   agendaTitle?: string;
@@ -115,10 +116,10 @@ export const events: CaravanEvent[] = [
       ["📍 المكان", "فرع جمعية رسالة – المقطم"],
       ["🧪 المحتوى", "محاضرات نظرية، تطبيقات عملية وورش تدريبية"],
       ["💰 الرسوم", "٢٠٠ جنيه رسوم رمزية لتغطية الكيماويات والأدوات والأجهزة"],
-      ["💳 الدفع", "في أول سيشن أوفلاين كاش، أو إنستاباي مع رفع سكرين التحويل"],
     ],
     organizer: "قوافل طبية مدينة نصر",
     mapUrl: "https://maps.app.goo.gl/pSqGbcgLFTFMPGeA9",
+    externalRegistrationUrl: "https://forms.gle/seSc8DkAGx2BAsXL7",
     topicsTitle: "محتوى التدريب",
     topics: [
       { ar: "محاضرات نظرية تأسس الفهم العلمي وراء كل تحليل", en: "Theoretical Lectures" },

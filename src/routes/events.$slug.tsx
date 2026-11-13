@@ -151,6 +151,10 @@ function EventPage() {
             <a href="#register" className="mt-3 block rounded-full bg-cta px-6 py-3 text-center font-bold text-cta-foreground shadow-cta transition-all hover:brightness-110 active:scale-95">
               احجز مكانك الآن
             </a>
+          ) : event.externalRegistrationUrl ? (
+            <a href={event.externalRegistrationUrl} target="_blank" rel="noopener noreferrer" className="mt-3 block rounded-full bg-cta px-6 py-3 text-center font-bold text-cta-foreground shadow-cta transition-all hover:brightness-110 active:scale-95">
+              سجّل الآن في التدريب ↗
+            </a>
           ) : (
             <p className="mt-6 rounded-2xl bg-card px-4 py-3 text-center text-sm font-bold text-muted-foreground">التسجيل هيفتح قريباً</p>
           )}
