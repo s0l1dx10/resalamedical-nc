@@ -20,6 +20,8 @@ export type CaravanEvent = {
   mapUrl?: string;
   hasRegistration?: boolean;
   topics?: { ar: string; en: string }[];
+  topicsTitle?: string;
+  agendaTitle?: string;
   agenda?: { time: string; t: string; d: string }[];
   bring?: string[];
 };
@@ -117,6 +119,18 @@ export const events: CaravanEvent[] = [
     ],
     organizer: "قوافل طبية مدينة نصر",
     mapUrl: "https://maps.app.goo.gl/pSqGbcgLFTFMPGeA9",
+    topicsTitle: "محتوى التدريب",
+    topics: [
+      { ar: "محاضرات نظرية تأسس الفهم العلمي وراء كل تحليل", en: "Theoretical Lectures" },
+      { ar: "تطبيقات عملية على العينات والأجهزة داخل المعمل", en: "Hands-on Practical Applications" },
+      { ar: "ورش تدريبية لتحويل المعرفة لمهارات حقيقية", en: "Training Workshops" },
+    ],
+    agendaTitle: "جدول الأيام الثلاثة",
+    agenda: [
+      { time: "١٤ نوفمبر", t: "اليوم الأول · ٤:٣٠ مساءً", d: "افتتاح الحدث ومحاضرات نظرية." },
+      { time: "١٥ نوفمبر", t: "اليوم الثاني · ٤:٣٠ مساءً", d: "تطبيقات عملية وورش تدريبية." },
+      { time: "١٦ نوفمبر", t: "اليوم الثالث · ٤:٣٠ مساءً", d: "استكمال الورش العملية والختام." },
+    ],
     partner: { name: "K&M Academy", url: "https://www.facebook.com/profile.php?id=61591742172213", logo: kmLogo.url },
   },
 ];

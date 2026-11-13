@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { getEvent } from "@/lib/events";
+import { SiteLogo } from "@/components/SiteLogo";
 import { CodeBlueForm } from "@/components/CodeBlueForm";
 
 export const Route = createFileRoute("/events/$slug")({
@@ -39,10 +40,10 @@ function EventPage() {
   return (
     <div dir="rtl" lang="ar" className="min-h-screen bg-background text-foreground font-arabic">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <Link to="/" className="text-xl font-extrabold text-primary">رسالة · القوافل الطبية</Link>
+        <Link to="/" aria-label="الرئيسية"><SiteLogo /></Link>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Link to="/" className="rounded-full border border-border px-5 py-2 text-sm font-bold">← الرجوع للرئيسية</Link>
+          <Link to="/" className="rounded-full border border-border px-4 py-2 text-sm font-bold">← الرئيسية</Link>
         </div>
       </header>
 
@@ -61,8 +62,8 @@ function EventPage() {
         <div className="space-y-14 md:col-span-2">
           {event.topics && (
             <div>
-              <h2 className="text-3xl font-extrabold">المحاور التدريبية</h2>
-              <p className="mt-2 text-muted-foreground">الإسعافات الأولية والإنعاش القلبي الرئوي · First Aid &amp; CPR</p>
+              <h2 className="text-3xl font-extrabold">{event.topicsTitle ?? "المحاور التدريبية"}</h2>
+              <p className="mt-2 text-muted-foreground">{event.subtitle}</p>
               <ol className="mt-8 space-y-3">
                 {event.topics.map((tp, i) => (
                   <li key={tp.en} className="flex gap-4 rounded-2xl border border-border bg-card p-5">
@@ -101,11 +102,11 @@ function EventPage() {
 
           {event.agenda && (
             <div>
-              <h2 className="text-3xl font-extrabold">برنامج اليوم</h2>
+              <h2 className="text-3xl font-extrabold">{event.agendaTitle ?? "برنامج اليوم"}</h2>
               <ol className="mt-8 space-y-4">
                 {event.agenda.map((a) => (
                   <li key={a.t} className="flex gap-5 rounded-2xl border border-border bg-card p-5">
-                    <div className="flex h-14 w-16 shrink-0 items-center justify-center rounded-xl bg-secondary text-lg font-extrabold text-primary">{a.time}</div>
+                    <div className="flex h-14 min-w-16 shrink-0 items-center justify-center rounded-xl bg-secondary px-2 text-center text-sm font-extrabold text-primary">{a.time}</div>
                     <div>
                       <h3 className="text-lg font-bold">{a.t}</h3>
                       <p className="mt-1 text-muted-foreground">{a.d}</p>

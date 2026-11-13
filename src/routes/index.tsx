@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { events } from "@/lib/events";
-import lineLogo from "@/assets/resala_nasr_city_line_logo.png.asset.json";
+import { SiteLogo } from "@/components/SiteLogo";
 import emblem from "@/assets/resala_medical_emblem.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -65,16 +65,16 @@ function Index() {
         </div>
 
         <nav className="relative z-10 mx-auto mt-6 flex w-[calc(100%-2rem)] max-w-5xl items-center justify-between gap-4 rounded-full border border-hero-foreground/10 bg-hero-foreground/5 px-5 py-3 backdrop-blur">
-          <img src={lineLogo.url} alt="شعار قوافل طبية جمعية رسالة - مدينة نصر" className="h-11 w-auto" />
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0 }); }} aria-label="الرئيسية"><SiteLogo /></a>
           <div className="hidden items-center gap-8 text-sm font-bold md:flex">
-            <a href="#top" className="hover:text-hero-accent">الرئيسية</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0 }); }} className="hover:text-hero-accent">الرئيسية</a>
             <a href="#about" className="hover:text-hero-accent">عن القوافل</a>
             <a href="#events" className="hover:text-hero-accent">الفعاليات</a>
             <a href="#services" className="hover:text-hero-accent">الخدمات</a>
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a href="#events" className="rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">الفعاليات القادمة</a>
+            <a href="#events" className="hidden sm:inline-block rounded-full bg-cta px-5 py-2 text-sm font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">الفعاليات القادمة</a>
           </div>
         </nav>
         <div className="relative z-10 mx-auto mt-4 flex w-[calc(100%-2rem)] max-w-5xl flex-wrap items-center justify-center gap-3">
@@ -112,7 +112,7 @@ function Index() {
             <h1 className="mt-2 font-calligraphy text-7xl leading-[1.3] text-hero-foreground drop-shadow-glow md:text-8xl">
               قوافل طبية <span className="block text-hero-accent">جمعية رسالة</span>
             </h1>
-            <p className="mt-4 text-lg text-hero-foreground/70">خلف كل قافلة.. أطباء ومتطوعين، وخلف كل كشف.. حكاية.</p>
+            <p className="mt-4 text-lg text-hero-foreground/70">بنوصل بالرعاية الطبية لكل مكان محتاجها.. خطوة بخطوة وإيد في إيد.</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a href="#events" className="rounded-full bg-cta px-8 py-4 text-lg font-bold text-cta-foreground shadow-cta transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95">احجز في الفعاليات ●</a>
               <a href="#events" className="rounded-full border border-hero-foreground/20 px-6 py-3.5 font-bold">

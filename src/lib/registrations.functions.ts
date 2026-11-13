@@ -28,10 +28,12 @@ export const registerCodeBlue = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const pkg = getPackage(data.package)!;
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const path = `code-blue/${crypto.randomUUID()}.${TYPES[data.receipt.type]}`;
+    const safeName = data.full_name.trim().replace(/[^\p{L}\p{N}]+/gu, "_").slice(0, 40);
+    const latin = /^[A-Za-z0-9_]+$/.test(safeName) ? `_${safeName}` : "";
+    const path = `code-blue/${data.phone}${latin}_${crypto.randomUUID().slice(0, 8)}.${TYPES[data.receipt.type]}`;
     const up = await supabaseAdmin.storage
       .from("payment-receipts")
-      .upload(path, await data.receipt.arrayBuffer(), { contentType: data.receipt.type });
+      .upload(path, await data.receipt.arrayBuffer(), { contentType: data.receipt.type, metadata: { full_name: data.full_name, phone: data.phone } });
     if (up.error) throw new Error("تعذّر رفع الإيصال، حاول مرة أخرى");
     const { error } = await supabaseAdmin.from("code_blue_registrations").insert({
       full_name: data.full_name,
