@@ -7,17 +7,25 @@ export type CodeBluePackage = {
 };
 
 export const codeBluePackages: CodeBluePackage[] = [
-  { id: "attendance", title: "حضور التدريب فقط", price: 50, features: ["حضور التدريب بدون شهادات"] },
+  {
+    id: "attendance",
+    title: "حضور التدريب فقط",
+    price: 50,
+    features: ["حضور التدريب بدون شهادات"],
+  },
   {
     id: "basic",
     title: "شهادة + كارنيه الشركة",
-    price: 220,
-    features: ["شهادة وكارنيه من شركة التدريب بختم الشركة", "مسلسلة بسيريال نمبر ومسجلة على الموقع الرسمي"],
+    price: 270,
+    features: [
+      "شهادة وكارنيه من شركة التدريب بختم الشركة",
+      "مسلسلة بسيريال نمبر ومسجلة على الموقع الرسمي",
+    ],
   },
   {
     id: "local",
     title: "الباقة المحلية المعتمدة",
-    price: 350,
+    price: 400,
     oldPrice: "١٨٥٠ ج",
     features: [
       "شهادة معتمدة من جهة نقابية",
@@ -28,7 +36,7 @@ export const codeBluePackages: CodeBluePackage[] = [
   {
     id: "international",
     title: "الشهادة الدولية AACME",
-    price: 550,
+    price: 600,
     oldPrice: "٩٥ دولار",
     features: [
       "معتمدة دولياً من الجمعية الأمريكية للتعليم الطبي المستمر",
