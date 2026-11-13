@@ -26,7 +26,7 @@ export const codeBluePackages: CodeBluePackage[] = [
     id: "local",
     title: "الباقة المحلية المعتمدة",
     price: 400,
-    oldPrice: "١٨٥٠ ج",
+    oldPrice: "1850 ج",
     features: [
       "شهادة معتمدة من جهة نقابية",
       "شهادة معتمدة من شركة التدريب بسيريال نمبر على موقعها الرسمي",
@@ -37,7 +37,7 @@ export const codeBluePackages: CodeBluePackage[] = [
     id: "international",
     title: "الشهادة الدولية AACME",
     price: 600,
-    oldPrice: "٩٥ دولار",
+    oldPrice: "95 دولار",
     features: [
       "معتمدة دولياً من الجمعية الأمريكية للتعليم الطبي المستمر",
       "معتمدة بكورسين BLS + First Aid",
